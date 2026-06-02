@@ -18,12 +18,28 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(
-    100deg,
-    rgba(20, 38, 43, 0.92) 0%,
-    rgba(31, 90, 104, 0.82) 60%,
-    rgba(44, 122, 140, 0.6) 100%
-  );
+  background:
+    /* Disuelve la parte baja hacia el color exacto del footer (transición elegante) */
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 52%,
+      rgba(20, 38, 43, 0.6) 78%,
+      var(--color-footer) 100%
+    ),
+    /* Disuelve también la parte alta para fundir con la sección anterior */
+    linear-gradient(
+      to bottom,
+      rgba(20, 38, 43, 0.45) 0%,
+      transparent 22%
+    ),
+    /* Tinte teal diagonal de base para legibilidad */
+    linear-gradient(
+      100deg,
+      rgba(20, 38, 43, 0.9) 0%,
+      rgba(31, 90, 104, 0.74) 60%,
+      rgba(44, 122, 140, 0.52) 100%
+    );
 }
 
 .final-cta__inner {
