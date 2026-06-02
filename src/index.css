@@ -1,0 +1,313 @@
+/* ============================================================
+   DDoor Inmobiliaria — Design System
+   "LA LLAVE" · Tenemos la llave que abre la puerta de tus sueños
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* ---- Marca ---- */
+  --color-primary:      #2C7A8C;   /* Teal petróleo del logo */
+  --color-primary-rgb:  44, 122, 140;
+  --color-primary-deep: #1F5A68;   /* Hover / profundidad */
+  --color-accent:       #C9A227;   /* Oro suave — lujo, CTAs secundarios */
+  --color-accent-rgb:   201, 162, 39;
+
+  /* ---- Neutros (NUNCA negro puro en contenido) ---- */
+  --color-bg:           #FBFAF7;   /* Off-white cálido base */
+  --color-surface:      #FFFFFF;   /* Cards */
+  --color-surface-alt:  #F2F0EB;   /* Secciones alternas */
+  --color-ink:          #1A2226;   /* Texto principal */
+  --color-ink-soft:     #51606A;   /* Texto secundario */
+  --color-line:         #E4E1DA;   /* Bordes / divisores */
+
+  /* ---- Footer (único lugar oscuro permitido) ---- */
+  --color-footer:       #14262B;   /* Teal muy oscuro, NO negro puro */
+
+  /* ---- Tipografía ---- */
+  --font-display: 'Fraunces', serif;
+  --font-body:    'Manrope', sans-serif;
+
+  /* ---- Layout ---- */
+  --section-padding: 120px 0;
+  --container-max:   1320px;
+  --container-pad:   0 64px;
+
+  /* ---- Sombras ---- */
+  --shadow-sm: 0 2px 8px rgba(26, 34, 38, 0.05);
+  --shadow-md: 0 12px 32px rgba(26, 34, 38, 0.08);
+  --shadow-lg: 0 24px 60px rgba(26, 34, 38, 0.12);
+
+  /* ---- Radios ---- */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+/* ============================================================
+   LAYOUT HELPERS
+   ============================================================ */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--container-pad);
+  width: 100%;
+}
+
+.section {
+  padding: var(--section-padding);
+}
+
+.section--alt {
+  background: var(--color-surface-alt);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  display: inline-block;
+  margin-bottom: 1.1rem;
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  margin-bottom: 1.2rem;
+}
+
+.section-lead {
+  font-size: 1.12rem;
+  color: var(--color-ink-soft);
+  max-width: 56ch;
+}
+
+/* ============================================================
+   BOTONES
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+  padding: 1rem 1.9rem;
+  border-radius: 100px;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(var(--color-primary-rgb), 0.28);
+}
+.btn-primary:hover {
+  background: var(--color-primary-deep);
+}
+
+.btn-gold {
+  background: var(--color-accent);
+  color: var(--color-ink);
+  box-shadow: 0 10px 28px rgba(var(--color-accent-rgb), 0.28);
+}
+.btn-gold:hover {
+  filter: brightness(1.05);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(6px);
+}
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: #fff;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-line);
+}
+.btn-outline:hover {
+  border-color: var(--color-primary);
+  background: rgba(var(--color-primary-rgb), 0.04);
+}
+
+/* ============================================================
+   CUSTOM CURSOR (NEXIX Taste Skill)
+   ============================================================ */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  pointer-events: none;
+  z-index: 99999;
+  mix-blend-mode: difference;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-primary);
+  pointer-events: none;
+  z-index: 99998;
+  opacity: 0.6;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease,
+    background 0.3s ease;
+}
+
+.cursor-ring.cursor--hover {
+  width: 56px;
+  height: 56px;
+  opacity: 1;
+  background: rgba(var(--color-primary-rgb), 0.08);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) and (hover: hover) {
+  * {
+    cursor: none;
+  }
+}
+
+/* ============================================================
+   SCROLL PROGRESS (NEXIX)
+   ============================================================ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  transform-origin: 0%;
+  z-index: 100000;
+}
+
+/* ============================================================
+   WHATSAPP FAB (NEXIX)
+   ============================================================ */
+.wa-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+  z-index: 9000;
+  color: #fff;
+}
+.wa-fab svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE LAYOUT
+   ============================================================ */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 80px 0;
+    --container-pad: 0 24px;
+  }
+}

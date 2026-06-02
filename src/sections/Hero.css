@@ -1,0 +1,194 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--color-footer);
+  /* Reserva el alto del navbar arriba para que el contenido nunca lo tape. */
+  padding: 110px 0 48px;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  will-change: transform;
+}
+
+.hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay gradiente teal para legibilidad */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      105deg,
+      rgba(20, 38, 43, 0.78) 0%,
+      rgba(20, 38, 43, 0.5) 45%,
+      rgba(20, 38, 43, 0.2) 100%
+    ),
+    linear-gradient(
+      to top,
+      rgba(20, 38, 43, 0.55) 0%,
+      rgba(20, 38, 43, 0.05) 40%
+    );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--container-max);
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.6rem;
+}
+
+.hero__title {
+  color: #fff;
+  font-size: clamp(2.7rem, 6.5vw, 5.6rem);
+  font-weight: 500;
+  max-width: 16ch;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero__subtitle {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  max-width: 52ch;
+  margin-top: 1.6rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.4rem;
+}
+
+/* ---- Mini buscador ---- */
+.hero__search {
+  margin-top: 3rem;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+  box-shadow: var(--shadow-lg);
+  max-width: 720px;
+  backdrop-filter: blur(12px);
+}
+
+.hero__search-toggle {
+  display: inline-flex;
+  background: var(--color-surface-alt);
+  border-radius: 100px;
+  padding: 4px;
+  margin-bottom: 1.1rem;
+}
+.hero__search-toggle button {
+  padding: 0.55rem 1.6rem;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--color-ink-soft);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.hero__search-toggle button.is-active {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(var(--color-primary-rgb), 0.3);
+}
+
+.hero__search-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 0.9rem;
+  align-items: end;
+}
+
+.hero__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.hero__field span {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+.hero__field select {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  transition: border-color 0.25s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2351606A' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+.hero__field select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.hero__search-btn {
+  height: 51px;
+  padding: 0 1.8rem;
+}
+
+/* ---- Scroll cue ---- */
+.hero__scroll-cue {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+.hero__scroll-cue span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+}
+.hero__scroll-line {
+  width: 1.5px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 768px) {
+  .hero__search-fields {
+    grid-template-columns: 1fr;
+  }
+  .hero__search-btn {
+    width: 100%;
+  }
+  .hero__scroll-cue {
+    display: none;
+  }
+}
