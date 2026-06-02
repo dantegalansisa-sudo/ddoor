@@ -76,7 +76,13 @@ export default function Hero() {
           DDoor Inmobiliaria · Santo Domingo, RD
         </motion.span>
 
-        <RevealText tag="h1" className="hero__title" delay={0.3} immediate>
+        <RevealText
+          tag="h1"
+          className="hero__title"
+          delay={0.3}
+          immediate
+          accentWords={['tus', 'sueños']}
+        >
           La llave que abre la puerta de tus sueños
         </RevealText>
 

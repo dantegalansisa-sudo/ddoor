@@ -29,19 +29,25 @@
 
 .navbar__logo {
   height: 56px;
-  width: auto;
-  transition: height 0.4s ease, filter 0.4s ease;
+  width: 56px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(20, 38, 43, 0.18);
+  transition: height 0.4s ease, width 0.4s ease, filter 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 /* Sobre el hero: el logo va dentro de un disco azul, se ve bien.
    Para legibilidad sobre el video, lo envolvemos en un badge claro. */
 .navbar:not(.navbar--solid) .navbar__logo {
   height: 60px;
-  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.35));
+  width: 60px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .navbar--solid .navbar__logo {
   height: 48px;
+  width: 48px;
 }
 
 .navbar__links {

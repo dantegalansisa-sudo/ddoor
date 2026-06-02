@@ -60,9 +60,18 @@
 .hero__title {
   color: #fff;
   font-size: clamp(2.7rem, 6.5vw, 5.6rem);
-  font-weight: 500;
-  max-width: 16ch;
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  line-height: 1.04;
+  max-width: 15ch;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Acento editorial de lujo: cursiva en oro suave */
+.hero__title .reveal-accent {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-accent);
 }
 
 .hero__subtitle {

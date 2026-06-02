@@ -8,6 +8,8 @@ interface RevealTextProps {
   tag?: 'h1' | 'h2' | 'h3' | 'p' | 'span';
   // Para contenido above-the-fold (hero): animar al montar, no al hacer scroll.
   immediate?: boolean;
+  // Palabras que reciben tratamiento de acento (cursiva dorada editorial).
+  accentWords?: string[];
 }
 
 export default function RevealText({
@@ -16,8 +18,10 @@ export default function RevealText({
   delay = 0,
   tag: Tag = 'h1',
   immediate = false,
+  accentWords = [],
 }: RevealTextProps) {
   const words = children.split(' ');
+  const accentSet = new Set(accentWords.map((w) => w.toLowerCase()));
 
   // whileInView para secciones que entran al scrollear; animate para el hero.
   const animProps = immediate
@@ -38,6 +42,11 @@ export default function RevealText({
           style={{ overflow: 'hidden', display: 'inline-block', paddingBottom: '0.06em' }}
         >
           <motion.span
+            className={
+              accentSet.has(word.toLowerCase().replace(/[.,]/g, ''))
+                ? 'reveal-accent'
+                : undefined
+            }
             style={{ display: 'inline-block' }}
             initial={{ y: '110%', rotate: 2 }}
             {...animProps}

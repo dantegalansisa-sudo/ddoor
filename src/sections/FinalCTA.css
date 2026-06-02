@@ -1,0 +1,76 @@
+.final-cta {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.final-cta__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url('https://images.pexels.com/photos/277667/pexels-photo-277667.jpeg?auto=compress&cs=tinysrgb&w=1600');
+  background-size: cover;
+  background-position: center;
+}
+
+.final-cta__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    100deg,
+    rgba(20, 38, 43, 0.92) 0%,
+    rgba(31, 90, 104, 0.82) 60%,
+    rgba(44, 122, 140, 0.6) 100%
+  );
+}
+
+.final-cta__inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.final-cta__eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.2rem;
+}
+
+.final-cta__title {
+  justify-content: center;
+  color: #fff;
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+  font-weight: 400;
+  max-width: 20ch;
+  margin: 0 auto;
+}
+.final-cta__title .reveal-accent {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.final-cta__text {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.1rem;
+  max-width: 52ch;
+  margin: 1.4rem auto 2.4rem;
+}
+
+.final-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .final-cta {
+    padding: 90px 0;
+  }
+}
